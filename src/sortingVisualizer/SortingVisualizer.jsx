@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SortingVisualizer.css';
-import Pile from './pile/Pile';
-import { selectionSort, bubbleSort, insertionSort, mergeSort, quickSort } from '../algorithm/sortingAlgorithms';
+import Pile from './Pile/Pile';
+import { selectionSort, bubbleSort, insertionSort, mergeSort, quickSort } from '../Algorithm/sortingAlgorithms';
 
 export default class SortingVisualizer extends Component {
     constructor(props) {
@@ -42,7 +42,7 @@ export default class SortingVisualizer extends Component {
     }
 
     setAlgorithm(algoId) {
-        if (this.state.unsortedPiles.length !== 0) {
+        if (this.state.unsortedPiles !== []) {
             this.setState({ finished: false, changingPiles: [], piles: this.state.unsortedPiles, pivot: -1 });
         }
         this.setState({ currentAlgorithm: algoId });

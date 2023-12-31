@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import TextLoop from "react-text-loop";
-import PathFindingVisualizer from './pathfindingVisualizer/PathfindingVisualizer';
-import SortingVisualizer from './sortingVisualizer/SortingVisualizer';
+import PathFindingVisualizer from './PathFindingVisualizer/PathFindingVisualizer';
+import SortingVisualizer from './SortingVisualizer/SortingVisualizer';
 import './Visualizer.css'
-// import AIVisualizer from './AIVisualizer/AIVisualizer';
+import AIVisualizer from './AIVisualizer/AIVisualizer';
 
 export default class Visualizer extends Component {
     constructor(props) {
@@ -45,9 +45,9 @@ export default class Visualizer extends Component {
         else if (this.state.mode === 'sorting') {
             renderObj = <SortingVisualizer setVisualizerRendering={this.changeRenderingState} getFunctions={this.getFunctions} />;
         }
-        // else if (this.state.mode === 'ai') {
-        //     renderObj = <AIVisualizer count={this.state.aicount} setVisualizerRendering={this.changeRenderingState} getFunctions={this.getFunctions}></AIVisualizer>
-        // }
+        else if (this.state.mode === 'ai') {
+            renderObj = <AIVisualizer count={this.state.aicount} setVisualizerRendering={this.changeRenderingState} getFunctions={this.getFunctions}></AIVisualizer>
+        }
         else {
             renderObj =
                 <div class="welbotron">
@@ -178,10 +178,6 @@ export default class Visualizer extends Component {
                             </li>
                         </div>
                     </div>
-
-                    <a href="https://github.com/JasonFengGit" style={{ marginLeft: "32%" }}>
-                        <img class="githubimg" src="https://github.com/JasonFengGit/Visualizer/raw/master/src/Github_icon.png" width="40px" height="40px" style={{ opacity: "0.7 !important"}} alt></img>
-                    </a>
                 </nav>
 
                 <div class="modal fade" id="setAlgoModal" role="dialog">
