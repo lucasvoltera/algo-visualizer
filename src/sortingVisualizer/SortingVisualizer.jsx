@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SortingVisualizer.css';
 import Pile from './pile/Pile';
-import { selectionSort, bubbleSort, insertionSort, mergeSort, quickSort } from '../Algorithm/sortingAlgorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSort, quickSort } from '../algorithm/sortingAlgorithms';
 
 export default class SortingVisualizer extends Component {
     constructor(props) {
