@@ -39,6 +39,27 @@ function DFS(grid, start, finish) {
 }
 
 
+function BFS(grid, start, finish) {
+    const visitedInOrder = [];
+    let unvisited = [];
+    unvisited.push(start);
+    while (unvisited.length) {
+        const node = unvisited.shift();
+        if (node === finish) {
+            return visitedInOrder;
+        }
+        if (node.isWall) continue;
+        node.isVisited = true;
+        visitedInOrder.push(node);
+
+        unvisited = unvisited.concat(getUNeighbors(node, grid));
+    }
+
+    return visitedInOrder;
+}
+
+
+
 
 function getUNeighbors(node, grid) {
     const neighbors = [];
