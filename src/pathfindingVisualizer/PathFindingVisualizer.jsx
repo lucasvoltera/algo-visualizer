@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Node from './node/Node';
 import { dijkstra, BFS, DFS, AStar, getShortestPath, primMaze } from '../algorithms/pathfindingAlgorithms';
 import './PathFindingVisualizer.css';
+import Node from './node/node';
+
 
 export default class PathFindingVisualizer extends Component {
     constructor(props) {
