@@ -19,6 +19,49 @@ function dijkstra(grid, start, finish) {
 }
 
 
+function DFS(grid, start, finish) {
+    const visitedInOrder = [];
+    let unvisited = [];
+    unvisited.push(start);
+    while (unvisited.length) {
+        const node = unvisited.pop();
+        if (node === finish) {
+            return visitedInOrder;
+        }
+        if (node.isWall) continue;
+        node.isVisited = true;
+        visitedInOrder.push(node);
+
+        unvisited = unvisited.concat(getUNeighbors(node, grid));
+    }
+
+    return visitedInOrder;
+}
+
+
+
+function getUNeighbors(node, grid) {
+    const neighbors = [];
+    const reN = [];
+    const { row, col } = node;
+    if (row > 0) neighbors.push(grid[row - 1][col]);
+    if (row < grid.length - 1) neighbors.push(grid[row + 1][col]);
+    if (col < grid[0].length - 1) neighbors.push(grid[row][col + 1]);
+    if (col > 0) neighbors.push(grid[row][col - 1]);
+
+    for (let index = 0; index < neighbors.length; index++) {
+        const neighbor = neighbors[index];
+        if (!neighbor.isVisited) {
+            neighbor.previousNode = node;
+            neighbor.isVisited = true;
+            reN.push(neighbor);
+        }
+    }
+    return reN;
+
+}
+
+
 function allNodes(grid) {
     const re = [];
     for (const row of grid) {
